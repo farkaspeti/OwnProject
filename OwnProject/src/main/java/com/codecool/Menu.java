@@ -1,12 +1,15 @@
 package com.codecool;
 
+import com.codecool.dao.TruckDataBase;
 import com.codecool.enums.Craft;
 import com.codecool.enums.Fuel;
 import com.codecool.entity.Vehicles;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
 import java.lang.*;
 
+@Slf4j
 public class Menu {
 
     Scanner scanner = new Scanner(System.in);
@@ -58,8 +61,12 @@ public class Menu {
                             Fuel truckInput2 = Fuel.valueOf(scanner.next().toUpperCase());
                             Vehicles truck = new Vehicles(truckInput, rand.nextInt(27) + 15, truckInput2, rand.nextInt(35) + 15, Craft.TRUCK);
                             System.out.println(truck);
-                            Data data = new Data();
-                            data.writeObjectToFile("src/main/resources/truck.csv",truck);
+                            TruckDataBase truckDataBase = TruckDataBase.getDataBase();
+                            try{
+                                truckDataBase.save(truck);
+                            }catch (Exception ex){
+                                log.error(ex + "");
+                            }
                             break;
                         } else if (userInput.equals("car")) {
                             String carInput = handleInputString("What will be your Car name?");

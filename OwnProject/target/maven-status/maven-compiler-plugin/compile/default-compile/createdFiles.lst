@@ -1,0 +1,8 @@
+com\codecool\Data.class
+com\codecool\Cargo.class
+com\codecool\dao\TruckDataBase.class
+com\codecool\Main.class
+com\codecool\enums\Craft.class
+com\codecool\enums\Fuel.class
+com\codecool\entity\Vehicles.class
+com\codecool\Menu.class
