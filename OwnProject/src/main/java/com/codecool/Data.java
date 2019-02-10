@@ -1,11 +1,13 @@
 package com.codecool;
 
+import com.codecool.entity.Vehicles;
+
 import java.io.*;
 
 
 public class Data {
 
-    public void writeObjectToFile(String pathName,Vehicles vehicles) {
+    public void writeObjectToFile(String pathName, Vehicles vehicles) {
             try {
 
                 FileOutputStream fileOut = new FileOutputStream(pathName);

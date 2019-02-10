@@ -3,7 +3,7 @@
     <persistence-unit name="TruckDB" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     
-        <class>com.codecool.entity.ExampleEntity</class>
+        <class>com.codecool.entity.Vehicles</class>
     
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>

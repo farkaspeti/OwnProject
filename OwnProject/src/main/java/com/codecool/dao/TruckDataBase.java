@@ -1,21 +1,20 @@
 package com.codecool.dao;
 
-import com.codecool.entity.ExampleEntity;
+import com.codecool.entity.Vehicles;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * @author Dávid
  */
 @Slf4j
-public class DataBase {
+public class TruckDataBase {
 
     /**
      * Osztalyelem peldanyositasa.
      */
-    private static final DataBase DB_PELDANY = new DataBase();
+    private static final TruckDataBase DB_PELDANY = new TruckDataBase();
     /**
      * Az adatbazis neve.
      */
@@ -28,7 +27,7 @@ public class DataBase {
     /**
      * Privát konstruktor.
      */
-    private DataBase() {
+    private TruckDataBase() {
     }
 
     /**
@@ -36,7 +35,7 @@ public class DataBase {
      *
      * @return singleton példány referencia
      */
-    public static DataBase getDbPeldany() {
+    public static TruckDataBase getDataBase() {
         return DB_PELDANY;
     }
 
@@ -84,7 +83,7 @@ public class DataBase {
      * érvénytelen ({@code null})
      * @throws Exception JPA hiba esetén
      */
-    public ExampleEntity save(ExampleEntity entity) throws IllegalStateException, IllegalArgumentException, Exception {
+    public Vehicles save(Vehicles entity) throws IllegalStateException, IllegalArgumentException, Exception {
 
         if (!connected()) {
             throw new IllegalStateException("Nincs adatbázis-kapcsolat!");
@@ -123,7 +122,7 @@ public class DataBase {
      * {@code ID}-ja
      * @throws Exception JPA hiba esetén
      */
-    public void delete(ExampleEntity entity) throws IllegalStateException, IllegalArgumentException, Exception {
+    public void delete(Vehicles entity) throws IllegalStateException, IllegalArgumentException, Exception {
         if (!connected()) {
             throw new IllegalStateException("Nincs adatbázis-kapcsolat!");
         }
@@ -134,7 +133,7 @@ public class DataBase {
 
         try {
             //a törlés előtt kikeresem az entitást, hogy biztosan Managed legyen
-            ExampleEntity delEntity = em.find(ExampleEntity.class, entity.getId());
+            Vehicles delEntity = em.find(Vehicles.class, entity.getId());
 
             if (delEntity.getId() == null) {
                 throw new IllegalArgumentException("A törlendő score nem található az adatbázisban!");

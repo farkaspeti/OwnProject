@@ -2,6 +2,7 @@ package com.codecool;
 
 import com.codecool.enums.Craft;
 import com.codecool.enums.Fuel;
+import com.codecool.entity.Vehicles;
 
 import java.util.*;
 import java.lang.*;
