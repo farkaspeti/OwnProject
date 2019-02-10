@@ -1,10 +1,11 @@
 package com.codecool;
 
 import com.codecool.entity.Vehicles;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 
-
+@Slf4j
 public class Data {
 
     public void writeObjectToFile(String pathName, Vehicles vehicles) {
@@ -17,7 +18,7 @@ public class Data {
                 System.out.println("The Object  was succesfully written to a file");
 
             } catch (Exception ex) {
-                ex.printStackTrace();
+                log.error(ex + "");
             }
         }
     }
