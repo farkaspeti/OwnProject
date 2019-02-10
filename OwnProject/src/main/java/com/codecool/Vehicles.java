@@ -1,5 +1,12 @@
 package com.codecool;
 
+import com.codecool.enums.Craft;
+import com.codecool.enums.Fuel;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Vehicles {
 
     private String name;
@@ -24,41 +31,5 @@ public class Vehicles {
             "," + fuelType +
             "," + space +
             "," + craftType;
-    }
-
-    public String getName(){
-        return this.name;
-    }
-
-    public int getConsumpton(){
-        return this.consumption;
-    }
-
-    public Fuel getFuelType(){
-        return this.fuelType;
-    }
-
-    public int getSpace() { return this.space; }
-
-    public Craft getCraftType() { return this.craftType; }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setConsumption(int consumption) {
-        this.consumption = consumption;
-    }
-
-    public void setFuelType(Fuel fuelType) {
-        this.fuelType = fuelType;
-    }
-
-    public void setSpace(int space) {
-        this.space = space;
-    }
-
-    public void setCraftType(Craft craftType) {
-        this.craftType = craftType;
     }
 }

@@ -1,20 +1,11 @@
 package com.codecool;
 
 import java.io.*;
-import java.util.ArrayList;
 
 
 public class Data {
 
     public void writeObjectToFile(String pathName,Vehicles vehicles) {
-       /* try {
-            FileWriter fw = new FileWriter(pathName);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(vehicles);
-        }catch(Exception e){
-
-        }
-    }*/
             try {
 
                 FileOutputStream fileOut = new FileOutputStream(pathName);

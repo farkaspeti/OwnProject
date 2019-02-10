@@ -1,5 +1,8 @@
 package com.codecool;
 
+import com.codecool.enums.Craft;
+import com.codecool.enums.Fuel;
+
 import java.util.*;
 import java.lang.*;
 
