@@ -4,6 +4,7 @@ import com.codecool.entity.Vehicles;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Dávid
@@ -152,5 +153,153 @@ public class TruckDataBase {
 //---------------------------------------------------------
 //---------------------NamedQueries------------------------
 //---------------------------------------------------------
+public Vehicles getVehiclesById(Long id) {
+    if (!connected()) {
+        throw new IllegalStateException("Nincs adatbazis-kapcsolat!");
+    }
+    try {
+        Query query = em.createNamedQuery("Vehicles.getVehiclesById", Vehicles.class);
+        query.setParameter("fid", id);
 
+        try {
+            Vehicles entity = (Vehicles) query.getSingleResult();
+            return entity;
+        } catch (NoResultException ex) {
+            log.error("" + ex);
+            return null;
+        }
+
+    } catch (Exception e) {
+        log.error("" + e);
+        return null;
+    }
+}
+
+    public List<Vehicles> getVehiclesByName(String name) {
+        if (!connected()) {
+            throw new IllegalStateException("Nincs adatbazis-kapcsolat!");
+        }
+        try {
+            Query query = em.createNamedQuery("Vehicles.getVehiclesByName", Vehicles.class);
+            query.setParameter("fname", name);
+
+            try {
+                List<Vehicles> entity = (List<Vehicles>) query.getResultList();
+                return entity;
+            } catch (NoResultException ex) {
+                log.error("" + ex);
+                return null;
+            }
+
+        } catch (Exception e) {
+            log.error("" + e);
+            return null;
+        }
+    }
+
+    public List<Vehicles> getTrucks() {
+        if (!connected()) {
+            throw new IllegalStateException("Nincs adatbazis-kapcsolat!");
+        }
+        try {
+            Query query = em.createNamedQuery("Vehicles.getTrucks", Vehicles.class);
+
+            try {
+                List<Vehicles> entity = (List<Vehicles>) query.getResultList();
+                return entity;
+            } catch (NoResultException ex) {
+                log.error("" + ex);
+                return null;
+            }
+
+        } catch (Exception e) {
+            log.error("" + e);
+            return null;
+        }
+    }
+
+    public List<Vehicles> getBuses() {
+        if (!connected()) {
+            throw new IllegalStateException("Nincs adatbazis-kapcsolat!");
+        }
+        try {
+            Query query = em.createNamedQuery("Vehicles.getBus", Vehicles.class);
+
+            try {
+                List<Vehicles> entity = (List<Vehicles>) query.getResultList();
+                return entity;
+            } catch (NoResultException ex) {
+                log.error("" + ex);
+                return null;
+            }
+
+        } catch (Exception e) {
+            log.error("" + e);
+            return null;
+        }
+    }
+
+    public List<Vehicles> getCars() {
+        if (!connected()) {
+            throw new IllegalStateException("Nincs adatbazis-kapcsolat!");
+        }
+        try {
+            Query query = em.createNamedQuery("Vehicles.getCar", Vehicles.class);
+
+            try {
+                List<Vehicles> entity = (List<Vehicles>) query.getResultList();
+                return entity;
+            } catch (NoResultException ex) {
+                log.error("" + ex);
+                return null;
+            }
+
+        } catch (Exception e) {
+            log.error("" + e);
+            return null;
+        }
+    }
+
+    public List<Vehicles> getDiesel() {
+        if (!connected()) {
+            throw new IllegalStateException("Nincs adatbazis-kapcsolat!");
+        }
+        try {
+            Query query = em.createNamedQuery("Vehicles.getDiesel", Vehicles.class);
+
+            try {
+                List<Vehicles> entity = (List<Vehicles>) query.getResultList();
+                return entity;
+            } catch (NoResultException ex) {
+                log.error("" + ex);
+                return null;
+            }
+
+        } catch (Exception e) {
+            log.error("" + e);
+            return null;
+        }
+    }
+
+    public List<Vehicles> getGas() {
+        if (!connected()) {
+            throw new IllegalStateException("Nincs adatbazis-kapcsolat!");
+        }
+        try {
+            Query query = em.createNamedQuery("Vehicles.getGas", Vehicles.class);
+
+            try {
+                List<Vehicles> entity = (List<Vehicles>) query.getResultList();
+                return entity;
+            } catch (NoResultException ex) {
+                log.error("" + ex);
+                return null;
+            }
+
+        } catch (Exception e) {
+            log.error("" + e);
+            return null;
+        }
+    }
+    
 }
